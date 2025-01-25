@@ -7,19 +7,24 @@ var n_bubbles = 1
 signal player_died
 var lateral_animation_threshold = 150
 onready var current_buble_respawn = $buble_respawns/right
+var moving: bool = false
 
 
 func process_movement(delta):
 	var velocity: Vector2 = Vector2.ZERO
-
+	moving = false
 	if Input.is_action_pressed("ui_left"):
+		moving = true
 		velocity.x = -1
 	elif Input.is_action_pressed("ui_right"):
+		moving = true
 		velocity.x = 1
 
 	if Input.is_action_pressed("ui_up"):
+		moving = true
 		velocity.y = -1
 	elif Input.is_action_pressed("ui_down"):
+		moving = true
 		velocity.y = 1
 
 	var collision = move_and_collide(speed * velocity * delta)
@@ -39,24 +44,19 @@ func process_shooting():
 		
 
 func process_animation():
-	if get_local_mouse_position().y < lateral_animation_threshold and get_local_mouse_position().y > -lateral_animation_threshold:
+	if not moving:
 		if $sprite.animation != "lateral_idle":
 			$sprite.play("lateral_idle")
-		if get_local_mouse_position().x < 0:
-			current_buble_respawn = $buble_respawns/left
-			$sprite.flip_h = true
-		else:
-			current_buble_respawn = $buble_respawns/right
-			$sprite.flip_h = false
 	else:
-		if get_local_mouse_position().y > lateral_animation_threshold:
-			current_buble_respawn = $buble_respawns/down
-			if $sprite.animation != "down_idle":
-				$sprite.play("down_idle")
-		elif get_local_mouse_position().y < -lateral_animation_threshold:
-			current_buble_respawn = $buble_respawns/up
-			if $sprite.animation != "up_idle":
-				$sprite.play("up_idle")
+		if $sprite.animation != "walking":
+			$sprite.play("walking")
+	
+	if get_local_mouse_position().x < 0:
+		current_buble_respawn = $buble_respawns/left
+		$sprite.flip_h = true
+	else:
+		current_buble_respawn = $buble_respawns/right
+		$sprite.flip_h = false
 
 
 func recharge_bubbles():

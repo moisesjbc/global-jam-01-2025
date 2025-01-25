@@ -16,6 +16,7 @@ func _ready():
 
 
 func random_number_in_range(min_n, max_n):
+	randomize()
 	return (randi() % (max_n - min_n)) + min_x
 
 
@@ -23,7 +24,6 @@ func spawn_glow(sector):
 	#randomize()
 	#var sector: int = randi() % 4
 	var tile_relative_position = Vector2.ZERO
-	print(sector)
 	if sector == 0:
 		# Left
 		tile_relative_position.x = min_x - 1
@@ -41,10 +41,10 @@ func spawn_glow(sector):
 		tile_relative_position.y = max_y + 1
 		tile_relative_position.x = random_number_in_range(min_x, max_x)
 
-	var tile_pos = map_to_world(tile_relative_position) + Vector2(32, 32)
+	var tile_pos = map_to_world(tile_relative_position) * 0.1 + Vector2(-30, -30)
 	var pipe_glow = pipe_glow_scene.instance()
+	get_parent().call_deferred("add_child", pipe_glow)
 	pipe_glow.connect("tree_exited", self, "_on_pipe_glow_destroyed", [sector])
-	add_child(pipe_glow)
 	pipe_glow.global_position = tile_pos
 
 

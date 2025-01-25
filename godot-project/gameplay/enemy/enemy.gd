@@ -7,9 +7,9 @@ var target
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	var velocity: Vector2 = Vector2(1.0, 0.0)
-	look_at(target.global_position)
-
-	var collision = move_and_collide(speed * velocity.rotated(rotation) * delta)
+	var velocity: Vector2 = (target.global_position - global_position).normalized()
+	
+	var collision = move_and_collide(speed * velocity * delta)
+	$sprite.flip_h = velocity.x < 0
 	if collision and collision.collider.name == "player":
 		collision.collider.die()

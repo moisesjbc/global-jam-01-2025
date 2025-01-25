@@ -12,3 +12,7 @@ func _on_respawn_cooldown_timeout():
 	enemy.global_position = $path_follow.global_position
 	enemy.target = target
 	$enemies.add_child(enemy)
+
+
+func _on_enemy_death():
+	$enemy_death.play()

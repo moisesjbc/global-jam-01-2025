@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/03 muertealien.ogg-eb636ca071a31e460dcb28e4d547a6d5.oggstr"
+
+[deps]
+
+source_file="res://globals/sfx/03 muertealien.ogg"
+dest_files=[ "res://.import/03 muertealien.ogg-eb636ca071a31e460dcb28e4d547a6d5.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

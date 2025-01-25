@@ -24,5 +24,6 @@ func _process(delta):
 					get_parent().add_child(trapped_enemy)
 					trapped_enemy.global_position = global_position
 				else:
+					get_node("/root/sfx").play_enemy_death()
 					collision.collider.queue_free()
 			queue_free()

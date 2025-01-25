@@ -3,6 +3,7 @@ extends KinematicBody2D
 
 export var speed: int = 500
 var bubble_scene = preload("res://gameplay/bubble/bubble.tscn")
+var n_bubbles = 1
 
 
 func process_movement(delta):
@@ -18,18 +19,24 @@ func process_movement(delta):
 	elif Input.is_action_pressed("ui_down"):
 		velocity.y = 1
 
-	move_and_collide(speed * velocity * delta)
+	var collision = move_and_collide(speed * velocity * delta)
+	if collision and (collision.collider.name == "font"):
+		recharge_bubbles()
 
 
 func process_shooting():
 	look_at(get_global_mouse_position())
 	
-	if Input.is_action_just_pressed("ui_shoot"):
+	if Input.is_action_just_pressed("ui_shoot") and n_bubbles > 0:
+		n_bubbles -= 1
 		var bubble = bubble_scene.instance()
 		get_parent().add_child(bubble)
 		bubble.global_rotation = global_rotation
 		bubble.global_position = $bubble_respawn.global_position
-		
+
+
+func recharge_bubbles():
+	n_bubbles = 1
 
 
 func _process(delta):

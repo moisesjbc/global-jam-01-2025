@@ -14,6 +14,13 @@ config/name="godot-project"
 run/main_scene="res://gameplay/main/main.tscn"
 config/icon="res://icon.png"
 
+[display]
+
+window/size/width=1920
+window/size/height=1080
+window/stretch/mode="2d"
+window/stretch/aspect="keep_width"
+
 [gui]
 
 common/drop_mouse_on_gui_input_disabled=true
@@ -60,6 +67,7 @@ ui_shoot={
 2d_physics/layer_2="bubbles"
 2d_physics/layer_3="enemies"
 2d_physics/layer_4="font"
+2d_physics/layer_5="pipes"
 
 [physics]
 

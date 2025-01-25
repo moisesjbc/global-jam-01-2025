@@ -11,8 +11,8 @@ func _process(delta):
 		if collision.collider.is_in_group("enemies") and not trapped_enemy:
 			trapped_enemy = collision.collider
 			trapped_enemy.get_parent().remove_child(trapped_enemy)
-		elif collision.collider.is_in_group("pipes"):
-			if trapped_enemy:
+		elif collision.collider.is_in_group("pipes") or collision.collider.is_in_group("pipe_glows"):
+			if collision.collider.is_in_group("pipes") and trapped_enemy:
 				get_parent().add_child(trapped_enemy)
 				trapped_enemy.global_position = global_position
 			queue_free()

@@ -14,4 +14,5 @@ func _on_player_player_died():
 
 
 func game_over():
+	get_node("/root/sfx").play_game_over()
 	get_tree().reload_current_scene()

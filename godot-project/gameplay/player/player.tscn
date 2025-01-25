@@ -64,11 +64,22 @@ script = ExtResource( 2 )
 position = Vector2( -24, 24 )
 shape = SubResource( 3 )
 
-[node name="bubble_respawn" type="Position2D" parent="."]
-position = Vector2( 112, 0 )
-
 [node name="sprite" type="AnimatedSprite" parent="."]
 scale = Vector2( 0.25, 0.25 )
 frames = SubResource( 4 )
 animation = "lateral_idle"
 playing = true
+
+[node name="buble_respawns" type="Node2D" parent="."]
+
+[node name="right" type="Position2D" parent="buble_respawns"]
+position = Vector2( 112, 0 )
+
+[node name="left" type="Position2D" parent="buble_respawns"]
+position = Vector2( -112, 0 )
+
+[node name="up" type="Position2D" parent="buble_respawns"]
+position = Vector2( -112, 0 )
+
+[node name="down" type="Position2D" parent="buble_respawns"]
+position = Vector2( 112, 0 )

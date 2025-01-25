@@ -5,6 +5,10 @@ export var velocity: Vector2 = Vector2(1.0, 0.0)
 var trapped_enemy = null
 
 
+func _ready():
+	$respawn_sound.play()
+
+
 func _process(delta):
 	var collision = move_and_collide(speed * velocity.rotated(rotation) * delta)
 	

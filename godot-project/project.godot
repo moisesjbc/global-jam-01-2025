@@ -69,6 +69,7 @@ ui_shoot={
 2d_physics/layer_4="font"
 2d_physics/layer_5="pipes"
 2d_physics/layer_6="pipe_glows"
+2d_physics/layer_7="bubbles_with_enemies"
 
 [physics]
 

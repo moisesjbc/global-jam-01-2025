@@ -2,7 +2,7 @@ extends Node2D
 
 
 func _ready():
-	$enemy.target = $font
+	$enemy_respawn.target = $font
 
 
 func _on_font_abduction_finished():

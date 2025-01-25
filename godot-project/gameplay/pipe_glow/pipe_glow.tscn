@@ -3,11 +3,11 @@
 [ext_resource path="res://gameplay/pipe_glow/pipe_glow.png" type="Texture" id=1]
 
 [sub_resource type="CircleShape2D" id=1]
-radius = 56.0
+radius = 95.0
 
 [node name="pipe_glow" type="StaticBody2D" groups=["pipe_glows"]]
 collision_layer = 32
-collision_mask = 2
+collision_mask = 66
 
 [node name="sprite" type="Sprite" parent="."]
 modulate = Color( 1, 0, 0, 0.588235 )

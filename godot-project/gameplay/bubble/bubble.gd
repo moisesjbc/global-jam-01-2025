@@ -7,8 +7,11 @@ var trapped_enemy = null
 
 func _process(delta):
 	var collision = move_and_collide(speed * velocity.rotated(rotation) * delta)
+	
 	if collision:
 		if collision.collider.is_in_group("enemies") and not trapped_enemy:
+			# While carrying an enemy, don't collide with other enemies.
+			set_collision_mask_bit(2, false)
 			trapped_enemy = collision.collider
 			trapped_enemy.get_parent().remove_child(trapped_enemy)
 		elif collision.collider.is_in_group("pipes") or collision.collider.is_in_group("pipe_glows"):

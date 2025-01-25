@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://gameplay/enemy_respawn/enemy_respawn.gd" type="Script" id=1]
+
+[sub_resource type="Curve2D" id=1]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 264, 207, 0, 0, 0, 0, 1691, 209, 0, 0, 0, 0, 1708, 920, 0, 0, 0, 0, 267, 912, 0, 0, 0, 0, 259, 232 )
+}
+
+[node name="enemy_respawn" type="Path2D"]
+curve = SubResource( 1 )
+script = ExtResource( 1 )
+
+[node name="path_follow" type="PathFollow2D" parent="."]
+position = Vector2( 264, 207 )
+rotation = 0.00140465
+scale = Vector2( 1, 1 )
+
+[node name="respawn_cooldown" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true
+
+[node name="enemies" type="Node2D" parent="."]
+
+[connection signal="timeout" from="respawn_cooldown" to="." method="_on_respawn_cooldown_timeout"]

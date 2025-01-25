@@ -59,6 +59,7 @@ ui_shoot={
 2d_physics/layer_1="player"
 2d_physics/layer_2="bubbles"
 2d_physics/layer_3="enemies"
+2d_physics/layer_4="font"
 
 [physics]
 

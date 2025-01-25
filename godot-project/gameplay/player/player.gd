@@ -4,6 +4,7 @@ extends KinematicBody2D
 export var speed: int = 500
 var bubble_scene = preload("res://gameplay/bubble/bubble.tscn")
 var n_bubbles = 1
+signal player_died
 
 
 func process_movement(delta):
@@ -42,3 +43,7 @@ func recharge_bubbles():
 func _process(delta):
 	process_movement(delta)
 	process_shooting()
+
+
+func die():
+	emit_signal("player_died")

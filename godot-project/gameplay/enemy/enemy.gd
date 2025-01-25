@@ -10,4 +10,6 @@ func _process(delta):
 	var velocity: Vector2 = Vector2(1.0, 0.0)
 	look_at(target.global_position)
 
-	move_and_collide(speed * velocity.rotated(rotation) * delta)
+	var collision = move_and_collide(speed * velocity.rotated(rotation) * delta)
+	if collision and collision.collider.name == "player":
+		collision.collider.die()

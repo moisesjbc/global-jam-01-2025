@@ -27,11 +27,11 @@ func spawn_glow(sector):
 	if sector == 0:
 		# Left
 		tile_relative_position.x = min_x - 1
-		tile_relative_position.y = random_number_in_range(min_y, max_y)
+		tile_relative_position.y = random_number_in_range(min_y, max_y - 1)
 	elif sector == 1:
 		# Right
 		tile_relative_position.x = max_x + 1
-		tile_relative_position.y = random_number_in_range(min_y, max_y)
+		tile_relative_position.y = random_number_in_range(min_y, max_y - 1)
 	elif sector == 2:
 		# Top
 		tile_relative_position.y = min_y - 1

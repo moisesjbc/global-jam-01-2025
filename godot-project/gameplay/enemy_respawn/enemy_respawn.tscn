@@ -18,6 +18,7 @@ rotation = 0.0153389
 
 [node name="respawn_cooldown" type="Timer" parent="."]
 wait_time = 4.0
+one_shot = true
 autostart = true
 
 [node name="enemies" type="Node2D" parent="."]
@@ -25,4 +26,9 @@ autostart = true
 [node name="appearance" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 2 )
 
+[node name="difficulty_timer" type="Timer" parent="."]
+wait_time = 30.0
+autostart = true
+
 [connection signal="timeout" from="respawn_cooldown" to="." method="_on_respawn_cooldown_timeout"]
+[connection signal="timeout" from="difficulty_timer" to="." method="_on_difficulty_timer_timeout"]

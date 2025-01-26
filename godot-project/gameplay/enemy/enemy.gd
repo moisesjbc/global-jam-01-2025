@@ -1,6 +1,6 @@
 extends KinematicBody2D
 
-
+export var initial_speed: int = 120
 export var speed: int = 0
 var target
 signal enemy_died
@@ -22,5 +22,5 @@ func die():
 
 
 func _on_sprite_animation_finished():
-	speed = 120
+	speed = initial_speed
 	$sprite.play("walking")

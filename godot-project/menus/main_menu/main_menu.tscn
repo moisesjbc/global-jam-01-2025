@@ -14,12 +14,20 @@ anchor_bottom = 1.0
 
 [node name="vbox_container" type="VBoxContainer" parent="center_container"]
 margin_left = 421.0
-margin_top = 448.0
+margin_top = 347.0
 margin_right = 1498.0
-margin_bottom = 631.0
+margin_bottom = 733.0
+custom_constants/separation = 20
 
 [node name="play_button" parent="center_container/vbox_container" instance=ExtResource( 1 )]
 rect_scale = Vector2( 1, 1 )
 text = "Jugar"
 
+[node name="exit_button" parent="center_container/vbox_container" instance=ExtResource( 1 )]
+margin_top = 203.0
+margin_bottom = 386.0
+rect_scale = Vector2( 1, 1 )
+text = "Salir"
+
 [connection signal="pressed" from="center_container/vbox_container/play_button" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="center_container/vbox_container/exit_button" to="." method="_on_exit_button_pressed"]

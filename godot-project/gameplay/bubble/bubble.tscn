@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://gameplay/bubble/BURBUJA burbuja_fantasiosa@2x.png" type="Texture" id=1]
 [ext_resource path="res://gameplay/bubble/bubble.gd" type="Script" id=2]
 [ext_resource path="res://gameplay/bubble/01 BurbujaSpawn.ogg" type="AudioStream" id=3]
+[ext_resource path="res://gameplay/bubble/alien_bubble.png" type="Texture" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 33, 33 )
@@ -12,7 +13,12 @@ collision_layer = 2
 collision_mask = 52
 script = ExtResource( 2 )
 
-[node name="sprite" type="Sprite" parent="."]
+[node name="trapped_alien" type="Sprite" parent="."]
+visible = false
+scale = Vector2( 0.1, 0.1 )
+texture = ExtResource( 4 )
+
+[node name="buble_sprite" type="Sprite" parent="."]
 scale = Vector2( 0.1, 0.1 )
 texture = ExtResource( 1 )
 

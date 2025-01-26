@@ -18,9 +18,12 @@ func _process(delta):
 			set_collision_mask_bit(2, false)
 			trapped_enemy = collision.collider
 			trapped_enemy.get_parent().remove_child(trapped_enemy)
+			$trapped_alien.visible = true
+			print("$buble_sprite/trapped_alien ", $buble_sprite/trapped_alien)
 		elif collision.collider.is_in_group("pipes") or collision.collider.is_in_group("pipe_glows"):
 			if trapped_enemy:
 				if collision.collider.is_in_group("pipes"):
+					$trapped_alien.visible = false
 					get_parent().add_child(trapped_enemy)
 					trapped_enemy.global_position = global_position
 				else:

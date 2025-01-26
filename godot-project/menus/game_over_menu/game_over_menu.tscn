@@ -1,0 +1,60 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://gui/button/button.tscn" type="PackedScene" id=1]
+[ext_resource path="res://fonts/Quando-Regular.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://menus/game_over_menu/game_over_menu.gd" type="Script" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+size = 70
+font_data = ExtResource( 2 )
+
+[node name="game_over_menu" type="Control"]
+pause_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 3 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 0.588235 )
+
+[node name="center_container" type="CenterContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="panel" type="Panel" parent="center_container"]
+margin_left = 560.0
+margin_top = 240.0
+margin_right = 1360.0
+margin_bottom = 840.0
+rect_min_size = Vector2( 800, 600 )
+
+[node name="restart_button" parent="center_container/panel" instance=ExtResource( 1 )]
+margin_left = 21.0
+margin_top = 288.0
+margin_right = 1098.0
+margin_bottom = 471.0
+rect_scale = Vector2( 0.7, 0.7 )
+text = "Reintentar [espacio]"
+
+[node name="label" parent="center_container/panel/restart_button" index="0"]
+custom_fonts/font = SubResource( 1 )
+
+[node name="exit_button" parent="center_container/panel" instance=ExtResource( 1 )]
+margin_left = 21.0
+margin_top = 446.0
+margin_right = 1098.0
+margin_bottom = 629.0
+rect_scale = Vector2( 0.7, 0.7 )
+text = "Menú principal [ESC]"
+
+[node name="label" parent="center_container/panel/exit_button" index="0"]
+custom_fonts/font = SubResource( 1 )
+text = "Menú principal [ESC]"
+
+[connection signal="pressed" from="center_container/panel/restart_button" to="." method="_on_restart_button_pressed"]
+[connection signal="pressed" from="center_container/panel/exit_button" to="." method="_on_exit_button_pressed"]
+
+[editable path="center_container/panel/restart_button"]
+[editable path="center_container/panel/exit_button"]

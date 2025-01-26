@@ -1,4 +1,4 @@
-extends Node2D
+extends Node
 
 
 var score = 0
@@ -33,7 +33,7 @@ func _on_player_player_died():
 
 func game_over():
 	get_node("/root/sfx").play_game_over()
-	get_tree().reload_current_scene()
+	$game_over_menu.start()
 
 
 func _on_enemy_respawn_enemy_died():

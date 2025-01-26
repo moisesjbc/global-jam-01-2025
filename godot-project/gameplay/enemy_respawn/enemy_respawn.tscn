@@ -5,7 +5,7 @@
 
 [sub_resource type="Curve2D" id=1]
 _data = {
-"points": PoolVector2Array( 0, 0, 0, 0, 323, 141, 0, 0, 0, 0, 650, 144, 0, 0, 0, 0, 1723, 153, 0, 0, 0, 0, 1723, 881, 0, 0, 0, 0, 315, 885, 0, 0, 0, 0, 323, 173 )
+"points": PoolVector2Array( 0, 0, 0, 0, 324, 139, 0, 0, 0, 0, 650, 144, 0, 0, 0, 0, 1723, 153, 0, 0, 0, 0, 1723, 881, 0, 0, 0, 0, 315, 885, 0, 0, 0, 0, 323, 173 )
 }
 
 [node name="enemy_respawn" type="Path2D"]
@@ -13,8 +13,8 @@ curve = SubResource( 1 )
 script = ExtResource( 1 )
 
 [node name="path_follow" type="PathFollow2D" parent="."]
-position = Vector2( 323, 141 )
-rotation = 0.00917248
+position = Vector2( 324, 139 )
+rotation = 0.0153389
 
 [node name="respawn_cooldown" type="Timer" parent="."]
 wait_time = 5.0

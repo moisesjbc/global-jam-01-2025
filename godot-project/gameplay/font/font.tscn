@@ -29,5 +29,11 @@ collision_mask = 4
 [node name="collision_shape" type="CollisionShape2D" parent="influence_area"]
 shape = SubResource( 2 )
 
+[node name="tween" type="Tween" parent="."]
+
+[node name="abduction_timer" type="Timer" parent="."]
+wait_time = 2.0
+
 [connection signal="body_entered" from="influence_area" to="." method="_on_influence_area_body_entered"]
 [connection signal="body_exited" from="influence_area" to="." method="_on_influence_area_body_exited"]
+[connection signal="timeout" from="abduction_timer" to="." method="_on_abduction_timer_timeout"]

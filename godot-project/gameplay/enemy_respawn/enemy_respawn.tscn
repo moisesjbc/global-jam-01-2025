@@ -17,7 +17,7 @@ position = Vector2( 324, 139 )
 rotation = 0.0153389
 
 [node name="respawn_cooldown" type="Timer" parent="."]
-wait_time = 5.0
+wait_time = 4.0
 autostart = true
 
 [node name="enemies" type="Node2D" parent="."]

@@ -22,5 +22,5 @@ func die():
 
 
 func _on_sprite_animation_finished():
-	speed = 200
+	speed = 120
 	$sprite.play("walking")

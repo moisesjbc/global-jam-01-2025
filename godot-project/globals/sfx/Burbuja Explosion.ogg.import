@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Burbuja Explosion.ogg-1e5e428c3eb54ef64b95267a57c6f618.oggstr"
+
+[deps]
+
+source_file="res://globals/sfx/Burbuja Explosion.ogg"
+dest_files=[ "res://.import/Burbuja Explosion.ogg-1e5e428c3eb54ef64b95267a57c6f618.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

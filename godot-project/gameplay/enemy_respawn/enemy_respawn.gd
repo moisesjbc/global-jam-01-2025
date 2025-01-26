@@ -22,7 +22,6 @@ func _on_respawn_cooldown_timeout():
 
 
 func _on_enemy_death():
-	print("respawn - enemy died")
 	get_node("/root/sfx").play_enemy_death()
 	emit_signal("enemy_died")
 

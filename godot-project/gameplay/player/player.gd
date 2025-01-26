@@ -36,11 +36,7 @@ func process_movement(delta):
 		speed = min_speed
 
 	if new_moving:
-		print("max_speed ", max_speed)
-		print("new speed ", speed + speed_step * delta)
-		
 		speed = min(max_speed, speed + speed_step * delta)
-		print("speed ", speed)
 
 	var collision = move_and_collide(speed * velocity * delta)
 	if collision and (collision.collider.name == "font"):

@@ -34,3 +34,4 @@ position = Vector2( 72, 32 )
 
 [connection signal="player_died" from="player" to="." method="_on_player_player_died"]
 [connection signal="abduction_finished" from="font" to="." method="_on_font_abduction_finished"]
+[connection signal="enemy_died" from="enemy_respawn" to="." method="_on_enemy_respawn_enemy_died"]

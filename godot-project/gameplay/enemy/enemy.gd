@@ -3,6 +3,7 @@ extends KinematicBody2D
 
 export var speed: int = 200
 var target
+signal enemy_died
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -13,3 +14,7 @@ func _process(delta):
 	$sprite.flip_h = velocity.x < 0
 	if collision and collision.collider.name == "player":
 		collision.collider.die()
+
+
+func die():
+	emit_signal("enemy_died")

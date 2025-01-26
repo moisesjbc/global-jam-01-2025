@@ -92,6 +92,8 @@ animations = [ {
 [node name="player" type="KinematicBody2D"]
 collision_mask = 4
 script = ExtResource( 2 )
+min_speed = 300
+speed_step = 200
 
 [node name="collision_shape" type="CollisionShape2D" parent="."]
 position = Vector2( -9, 10 )

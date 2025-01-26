@@ -1,7 +1,10 @@
 extends KinematicBody2D
 
 
-export var speed: int = 500
+export var min_speed = 400
+export var speed: float = min_speed
+export var max_speed = 500
+export var speed_step = 50
 var bubble_scene = preload("res://gameplay/bubble/bubble.tscn")
 var n_bubbles = 1
 signal player_died
@@ -13,26 +16,38 @@ signal gun_reloaded
 
 
 func process_movement(delta):
+	var new_moving = false
 	var velocity: Vector2 = Vector2.ZERO
-	moving = false
 	if Input.is_action_pressed("ui_left"):
-		moving = true
+		new_moving = true
 		velocity.x = -1
 	elif Input.is_action_pressed("ui_right"):
-		moving = true
+		new_moving = true
 		velocity.x = 1
 
 	if Input.is_action_pressed("ui_up"):
-		moving = true
+		new_moving = true
 		velocity.y = -1
 	elif Input.is_action_pressed("ui_down"):
-		moving = true
+		new_moving = true
 		velocity.y = 1
+		
+	if not moving and new_moving:
+		speed = min_speed
+
+	if new_moving:
+		print("max_speed ", max_speed)
+		print("new speed ", speed + speed_step * delta)
+		
+		speed = min(max_speed, speed + speed_step * delta)
+		print("speed ", speed)
 
 	var collision = move_and_collide(speed * velocity * delta)
 	if collision and (collision.collider.name == "font"):
 		recharge_bubbles()
 
+
+	moving = new_moving
 
 func process_shooting():
 	current_buble_respawn.look_at(get_global_mouse_position())

@@ -19,42 +19,31 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 color = Color( 0, 0, 0, 0.588235 )
 
-[node name="center_container" type="CenterContainer" parent="."]
-anchor_right = 1.0
-anchor_bottom = 1.0
-
-[node name="panel" type="Panel" parent="center_container"]
-margin_left = 560.0
-margin_top = 240.0
-margin_right = 1360.0
-margin_bottom = 840.0
-rect_min_size = Vector2( 800, 600 )
-
-[node name="restart_button" parent="center_container/panel" instance=ExtResource( 1 )]
-margin_left = 21.0
-margin_top = 288.0
-margin_right = 1098.0
-margin_bottom = 471.0
+[node name="restart_button" parent="." instance=ExtResource( 1 )]
+margin_left = 581.0
+margin_top = 392.0
+margin_right = 1658.0
+margin_bottom = 575.0
 rect_scale = Vector2( 0.7, 0.7 )
 text = "Reintentar [espacio]"
 
-[node name="label" parent="center_container/panel/restart_button" index="0"]
+[node name="label" parent="restart_button" index="0"]
 custom_fonts/font = SubResource( 1 )
 
-[node name="exit_button" parent="center_container/panel" instance=ExtResource( 1 )]
-margin_left = 21.0
-margin_top = 446.0
-margin_right = 1098.0
-margin_bottom = 629.0
+[node name="exit_button" parent="." instance=ExtResource( 1 )]
+margin_left = 581.0
+margin_top = 550.0
+margin_right = 1658.0
+margin_bottom = 733.0
 rect_scale = Vector2( 0.7, 0.7 )
 text = "Menú principal [ESC]"
 
-[node name="label" parent="center_container/panel/exit_button" index="0"]
+[node name="label" parent="exit_button" index="0"]
 custom_fonts/font = SubResource( 1 )
 text = "Menú principal [ESC]"
 
-[connection signal="pressed" from="center_container/panel/restart_button" to="." method="_on_restart_button_pressed"]
-[connection signal="pressed" from="center_container/panel/exit_button" to="." method="_on_exit_button_pressed"]
+[connection signal="pressed" from="restart_button" to="." method="_on_restart_button_pressed"]
+[connection signal="pressed" from="exit_button" to="." method="_on_exit_button_pressed"]
 
-[editable path="center_container/panel/restart_button"]
-[editable path="center_container/panel/exit_button"]
+[editable path="restart_button"]
+[editable path="exit_button"]

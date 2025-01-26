@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/04 aparcion.ogg-90e66d6bb3c5892f4f92adbb65745bd6.oggstr"
+
+[deps]
+
+source_file="res://gameplay/enemy_respawn/04 aparcion.ogg"
+dest_files=[ "res://.import/04 aparcion.ogg-90e66d6bb3c5892f4f92adbb65745bd6.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

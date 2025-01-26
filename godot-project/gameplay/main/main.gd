@@ -6,6 +6,7 @@ var elapsed_seconds = 0
 
 
 func _ready():
+	get_node("/root/music").play_main_music()
 	$enemy_respawn.target = $font
 	
 	set_score(0)

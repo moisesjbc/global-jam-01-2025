@@ -8,6 +8,8 @@ signal player_died
 var lateral_animation_threshold = 150
 onready var current_buble_respawn = $buble_respawns/right
 var moving: bool = false
+signal gun_emptied
+signal gun_reloaded
 
 
 func process_movement(delta):
@@ -36,6 +38,7 @@ func process_shooting():
 	current_buble_respawn.look_at(get_global_mouse_position())
 	
 	if Input.is_action_just_pressed("ui_shoot") and n_bubbles > 0:
+		emit_signal("gun_emptied")
 		n_bubbles -= 1
 		var bubble = bubble_scene.instance()
 		get_parent().add_child(bubble)
@@ -60,7 +63,9 @@ func process_animation():
 
 
 func recharge_bubbles():
-	n_bubbles = 1
+	if n_bubbles < 1:
+		n_bubbles = 1
+		emit_signal("gun_reloaded")
 
 
 func _process(delta):

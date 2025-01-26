@@ -10,3 +10,11 @@ func print_time(elapsed_seconds):
 	var seconds = elapsed_seconds % 60
 	
 	$time/label.text = "%d:%02d" % [minutes, seconds]
+
+
+func _on_player_gun_emptied():
+	$bubles/background_sprite_2/animation_player.play("bubles")
+
+
+func _on_player_gun_reloaded():
+	$bubles/background_sprite_2/animation_player.play("bubbles_up")
